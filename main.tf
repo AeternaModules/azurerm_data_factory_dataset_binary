@@ -1,5 +1,5 @@
-resource "azurerm_data_factory_dataset_binary" "data_factory_dataset_binarys" {
-  for_each = var.data_factory_dataset_binarys
+resource "azurerm_data_factory_dataset_binary" "data_factory_dataset_binaries" {
+  for_each = var.data_factory_dataset_binaries
 
   data_factory_id       = each.value.data_factory_id
   linked_service_name   = each.value.linked_service_name

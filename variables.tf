@@ -1,6 +1,6 @@
-variable "data_factory_dataset_binarys" {
+variable "data_factory_dataset_binaries" {
   description = <<EOT
-Map of data_factory_dataset_binarys, attributes below
+Map of data_factory_dataset_binaries, attributes below
 Required:
     - data_factory_id
     - linked_service_name
@@ -45,9 +45,9 @@ EOT
     parameters            = optional(map(string))
     azure_blob_storage_location = optional(object({
       container                 = string
-      dynamic_container_enabled = optional(bool, false)
-      dynamic_filename_enabled  = optional(bool, false)
-      dynamic_path_enabled      = optional(bool, false)
+      dynamic_container_enabled = optional(bool) # Default: false
+      dynamic_filename_enabled  = optional(bool) # Default: false
+      dynamic_path_enabled      = optional(bool) # Default: false
       filename                  = optional(string)
       path                      = optional(string)
     }))
@@ -56,15 +56,15 @@ EOT
       type  = string
     }))
     http_server_location = optional(object({
-      dynamic_filename_enabled = optional(bool, false)
-      dynamic_path_enabled     = optional(bool, false)
+      dynamic_filename_enabled = optional(bool) # Default: false
+      dynamic_path_enabled     = optional(bool) # Default: false
       filename                 = string
       path                     = string
       relative_url             = string
     }))
     sftp_server_location = optional(object({
-      dynamic_filename_enabled = optional(bool, false)
-      dynamic_path_enabled     = optional(bool, false)
+      dynamic_filename_enabled = optional(bool) # Default: false
+      dynamic_path_enabled     = optional(bool) # Default: false
       filename                 = string
       path                     = string
     }))
